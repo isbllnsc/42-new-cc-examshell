@@ -19,7 +19,7 @@ case $opt in
         bash help.sh
         ;;
     2)
-        bash rank02py_menu.sh
+        bash rank03_menu.sh
         ;;
     3)
         cd ../../rendu

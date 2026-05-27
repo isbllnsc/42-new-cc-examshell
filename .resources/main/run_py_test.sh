@@ -1,5 +1,5 @@
 #!/bin/bash
-# run_py_test.sh — helper compartilhado para todos os testers do rank02py
+# run_py_test.sh — helper compartilhado para todos os testers do rank03
 # Uso: bash run_py_test.sh <QUESTION>
 source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/colors.sh"
 

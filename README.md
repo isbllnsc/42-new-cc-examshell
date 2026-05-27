@@ -21,6 +21,7 @@ This project provides a comprehensive practice shell for 42 School examinations,
 ├── exam.sh           # Main entry point
 ├── Makefile          # Build configuration
 ├── README.md         # This file
+├── update.sh         # Shell update script
 └── .resources/       # Practice materials
     ├── main/         # Main menu and interface
     └── rank03/       # Rank 03 exam exercises

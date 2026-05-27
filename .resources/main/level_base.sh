@@ -25,11 +25,11 @@ elif [[ "$rank" == "rank04" ]]; then
         echo "Invalid level: $level for rank04"
         exit 1
     fi
-elif [[ "$rank" == "rank02py" ]]; then
+elif [[ "$rank" == "rank03" ]]; then
     if [[ "$level" == *"level0"* ]]; then
         qsub=(bracket_validator count_consecutive_digit_pairs crypto_sorter echo_validator merge_sorted_lists mirror_matrix number_base_converter pattern_tracker permutation_checker twist_permutation whisper_cipher)
     else
-        echo "Invalid level: $level for rank02py"
+        echo "Invalid level: $level for rank03"
         exit 1
     fi
 else
@@ -89,7 +89,7 @@ elif [[ "$rank" == "rank04" && "$level" == *"level2"* ]]; then
     if [[ "${shuffled[$i]}" == "vbc" ]]; then
         touch "$base_dir/../../rendu/${shuffled[$i]}/vbc.h"
     fi
-elif [[ "$rank" == "rank02py" ]]; then
+elif [[ "$rank" == "rank03" ]]; then
     touch "$base_dir/../../rendu/${shuffled[$i]}/${shuffled[$i]}.py"
 else
     touch "$base_dir/../../rendu/${shuffled[$i]}/${shuffled[$i]}.c"

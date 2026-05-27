@@ -10,14 +10,11 @@ base_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # Centralized temp file to track subject
 subject_file="/tmp/.current_subject_${rank}_${level}"
 
-# Define subject pool using case statement instead of associative array
+# Define subject pool
 get_subjects() {
     case "$level" in
-        level1)
-            echo "broken_gnl filter scanf"
-            ;;
-        level2)
-            echo "n_queens permutations powerset rip tsp"
+        level0)
+            echo "bracket_validator count_consecutive_digit_pairs crypto_sorter echo_validator merge_sorted_lists mirror_matrix number_base_converter pattern_tracker permutation_checker twist_permutation whisper_cipher"
             ;;
         *)
             echo ""
@@ -35,32 +32,9 @@ pick_new_subject() {
 }
 
 prepare_subject() {
+    # Create rendu directory and the Python file for the user
     mkdir -p "$base_dir/../../rendu/$chosen"
-    
-    # Create appropriate files based on subject requirements
-    case $chosen in
-        "broken_gnl")
-            [ ! -f "$base_dir/../../rendu/$chosen/broken_gnl.c" ] && \
-                cp "$base_dir/../$rank/$level/broken_gnl/broken_gnl.c" "$base_dir/../../rendu/$chosen/broken_gnl.c"
-            touch "$base_dir/../../rendu/$chosen/get_next_line.c"
-            touch "$base_dir/../../rendu/$chosen/get_next_line.h"
-            ;;
-        "filter")
-            touch "$base_dir/../../rendu/$chosen/filter.c"
-            ;;
-        "scanf")
-            touch "$base_dir/../../rendu/$chosen/ft_scanf.c"
-            ;;
-        "tsp")
-        	[ ! -f "$base_dir/../../rendu/$chosen/tsp.c" ] && \
-                	cp "$base_dir/../$rank/$level/tsp/tsp.c" "$base_dir/../../rendu/$chosen/tsp.c"
-                touch "$base_dir/../../rendu/$chosen/tsp.h"
-                ;;
-        *)
-            # For other subjects, create generic .c file
-            touch "$base_dir/../../rendu/$chosen/$chosen.c"
-            ;;
-    esac
+    touch "$base_dir/../../rendu/$chosen/$chosen.py"
 
     cd "$base_dir/../$rank/$level/$chosen" || {
         echo -e "${RED}Subject folder not found.${RESET}"
@@ -68,11 +42,12 @@ prepare_subject() {
     }
 
     clear
-    echo -e "${CYAN}${BOLD}Your subject: $chosen${RESET}"
+    echo -e "${CYAN}${BOLD}🐍 Your subject: $chosen${RESET}"
     echo "=================================================="
     cat sub.txt
     echo
-    echo -e "=================================================="
+    echo "=================================================="
+    echo -e "${YELLOW}Your file: rendu/$chosen/$chosen.py${RESET}"
     echo -e "${YELLOW}Type 'test' to test your code, 'next' to get a new question, or 'exit' to quit.${RESET}"
 }
 
@@ -83,40 +58,44 @@ if [ -f "$subject_file" ]; then
 else
     pick_new_subject
     chosen=$(cat "$subject_file")
-    echo -e "${GREEN}🎯 New subject chosen: $chosen${RESET}"
 fi
 
 prepare_subject
 
-# Interactive loop
+# Command loop
 while true; do
-    echo -e "${MAGENTA}${BOLD}Enter command: ${RESET}"
-    read command
-
-    case $command in
+    read -rp "/> " input
+    case "$input" in
         test)
-            if [ -f "tester.sh" ]; then
-                echo -e "${BLUE}Running tester...${RESET}"
-                bash tester.sh
-                echo -e "${CYAN}Test completed. Continue working or type 'next' for a new subject.${RESET}"
+            clear
+            echo -e "${GREEN}Running tester...${RESET}"
+            output=$(bash tester.sh 2>&1)
+            echo "$output" | tee tester_output.log
+
+            if echo "$output" | grep -q -E "PASSED|SUCCESS|OK:"; then
+                echo -e "${GREEN}${BOLD}✔️  Passed!${RESET}"
+                rm -f "$subject_file"
+                sleep 1
+                exit 0
             else
-                echo -e "${YELLOW}No tester available for this subject. Please test manually.${RESET}"
+                echo -e "${RED}${BOLD}❌  Failed.${RESET}"
+                sleep 1
+                exit 1
             fi
             ;;
         next)
+            echo -e "${BLUE}🔄 Picking a new subject...${RESET}"
             pick_new_subject
             chosen=$(cat "$subject_file")
-            echo -e "${GREEN}🎯 New subject chosen: $chosen${RESET}"
             prepare_subject
             ;;
         exit)
-            echo -e "${RED}Exiting exam mode...${RESET}"
+            echo "Exiting..."
             rm -f "$subject_file"
-            cd "$base_dir"
             exit 0
             ;;
         *)
-            echo -e "${RED}Unknown command. Use 'test', 'next', or 'exit'.${RESET}"
+            echo "Please type 'test' to test code, 'next' for next or 'exit' to quit."
             ;;
     esac
 done

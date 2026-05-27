@@ -42,7 +42,7 @@ show_main_menu() {
         printf "${WHITE}%s${RESET}\n" "╚═══════════════════════════════════════════════════════════╝"
         printf "${GREEN}${BOLD}Pressione Enter para voltar...${RESET}"
         read -r
-        bash rank02py_menu.sh
+        bash rank03_menu.sh
         exit
     fi
 
@@ -66,7 +66,7 @@ show_main_menu() {
 
     read -r choice
     if [ "$choice" = "0" ]; then
-        bash rank02py_menu.sh
+        bash rank03_menu.sh
         exit
     fi
 
