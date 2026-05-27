@@ -3,6 +3,7 @@
 # Color codes
 RED='\033[0;31m'
 GREEN='\033[0;32m'
+WHITE='\033[1;37m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 CYAN='\033[0;36m'
@@ -10,11 +11,9 @@ NC='\033[0m' # No Color
 
 clear
 
-echo -e "${CYAN}"
-echo "╔═══════════════════════════════════════════════════════════╗"
-echo "║                   🔄 UPDATING 42 EXAM SHELL               ║"
-echo "╚═══════════════════════════════════════════════════════════╝"
-echo -e "${NC}"
+echo -e "${WHITE}╔═══════════════════════════════════════════════════════════╗${NC}"
+echo -e "${WHITE}║${GREEN}               ✨ UPDATING 42 EXAM SHELL ✨                ${WHITE}║${NC}"
+echo -e "${WHITE}╚═══════════════════════════════════════════════════════════╝${NC}"
 echo ""
 
 # Check if git is available
@@ -43,14 +42,14 @@ if ! git fetch origin; then
     echo -e "${RED}❌ Failed to fetch${NC}"
     exit 1
 fi
-echo -e "${GREEN}✅ Fetch successful${NC}"
+echo -e "${WHITE}✅ Fetch successful${NC}"
 echo ""
 
 # Check if there are updates available
 BEHIND=$(git rev-list --count HEAD..origin/$CURRENT_BRANCH 2>/dev/null)
 
 if [ "$BEHIND" -eq 0 ]; then
-    echo -e "${GREEN}✅ You are up to date!${NC}"
+    echo -e "${WHITE}✅ You are up to date!${NC}"
     echo ""
 else
     echo -e "${YELLOW}📦 $BEHIND update(s) available${NC}"
@@ -67,22 +66,22 @@ else
         echo -e "${RED}❌ Failed to pull${NC}"
         exit 1
     fi
-    echo -e "${GREEN}✅ Pull successful${NC}"
+    echo -e "${WHITE}✅ Pull successful${NC}"
     echo ""
 fi
 
 # Update file permissions for tester scripts
 echo -e "${BLUE}🔐 Updating file permissions...${NC}"
 find .resources -name "tester.sh" -exec chmod +x {} \; 2>/dev/null
-echo -e "${GREEN}✅ Permissions updated${NC}"
+echo -e "${WHITE}✅ Permissions updated${NC}"
 echo ""
 
 # Show final status
 echo "═══════════════════════════════════════════════════════════"
-echo -e "${GREEN}${BOLD}✨ Update Complete!${NC}"
+echo -e "${WHITE}${BOLD}✨ Update Complete!${NC}"
 echo "═══════════════════════════════════════════════════════════"
 echo ""
-echo -e "${CYAN}Ready to continue? Press enter to return to menu.${NC}"
+echo -e "${GREEN}Ready to continue? Press enter to return to menu.${NC}"
 read -r
 
 cd .resources/main
