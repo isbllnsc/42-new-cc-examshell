@@ -5,15 +5,13 @@ clear
 bash label.sh
 printf "${WHITE}%s${RESET}\n" "╔═══════════════════════════════════════════════════════════╗"
 printf "${GREEN}║            🐍 EXAM RANK 03 - MODE SELECTION 🐍            ║${RESET}\n"
-printf "${WHITE}%s${RESET}\n" "╚═══════════════════════════════════════════════════════════╝"
-printf "${BLUE}%s${RESET}\n" "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
-printf "${WHITE}%s${RESET}\n" "◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆"
+printf "${WHITE}%s${RESET}\n" "╠═══════════════════════════════════════════════════════════╣"
+printf "${GREEN}%s${RESET}\n" "~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~"
 printf "${WHITE}${BOLD}%s${RESET}\n" "✨ 1. Level Mode"
 printf "${WHITE}${BOLD}%s${RESET}\n" "✨ 2. Real Exam Mode"
 printf "${WHITE}${BOLD}%s${RESET}\n" "✨ 3. Tracer"
 printf "${WHITE}${BOLD}%s${RESET}\n" "✨ 4. Back to Main Menu"
-printf "${WHITE}%s${RESET}\n" "◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆"
-printf "${BLUE}%s${RESET}\n" "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
+printf "${GREEN}%s${RESET}\n" "~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~"
 printf "${WHITE}%s${RESET}\n" "╚═══════════════════════════════════════════════════════════╝"
 printf "${GREEN}${BOLD}Enter your choice (1-4): ${RESET}"
 read rank02py_opt

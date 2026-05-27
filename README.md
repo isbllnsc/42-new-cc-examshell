@@ -1,6 +1,6 @@
 # 42 Exam Practice Shell
 
-⚡ An interactive practice environment for 42 School exam (Ranks 03) ⚡
+⚡ An interactive practice environment for 42 School exam (Rank 03) ⚡
 
 ## 📋 Overview
 
@@ -23,11 +23,7 @@ This project provides a comprehensive practice shell for 42 School examinations,
 ├── README.md         # This file
 └── .resources/       # Practice materials
     ├── main/         # Main menu and interface
-    ├── rank02/       # Rank 02 exam exercises
-    ├── rank03/       # Rank 03 exam exercises
-    ├── rank04/       # Rank 04 exam exercises
-    ├── rank05/       # Rank 05 exam exercises
-    └── rank06/       # Rank 06 exam exercises
+    └── rank03/       # Rank 03 exam exercises
 ```
 
 ## 🔧 Installation & Usage
@@ -36,7 +32,7 @@ This project provides a comprehensive practice shell for 42 School examinations,
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/terminal-42s/42_examshell
+   git clone https://github.com/isbllnsc/42-new-cc-examshell.git
    cd 42_examshell
 
 2. **Run the exam shell**:
@@ -56,6 +52,7 @@ The main menu provides the following options:
 - **✨ 1. Commands**: Access command reference and practice
 - **✨ 2. Exam Rank 03**: Practice exercises for Rank 03 exam
 - **✨ 3. Open Rendu Folder**: Access your submission workspace
+- **✨ 4. Update Shell**: Keep your exam shell up-to-date with latest features
 
 ## 💡 How to Use
 
@@ -77,7 +74,8 @@ The shell automatically creates a `rendu` folder where you can:
 The exam shell includes an automatic update mechanism:
 
 ```bash
-# Manually run the update script:
+# From the main menu, select option 4: Update Shell
+# Or manually run:
 bash update.sh
 ```
 

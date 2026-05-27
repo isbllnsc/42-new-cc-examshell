@@ -34,6 +34,9 @@ CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 echo -e "${BLUE}📍 Current branch: ${YELLOW}$CURRENT_BRANCH${NC}"
 echo ""
 
+# Set remote URL to ensure updates pull from the correct repo
+git remote set-url origin https://github.com/isbllnsc/42-new-cc-examshell.git 2>/dev/null || git remote add origin https://github.com/isbllnsc/42-new-cc-examshell.git
+
 # Fetch latest changes
 echo -e "${BLUE}📥 Fetching latest changes from repository...${NC}"
 if ! git fetch origin; then
