@@ -1,6 +1,6 @@
 # 42 Exam Practice Shell
 
-⚡ An interactive practice environment for 42 School exams (Ranks 02-06) ⚡
+⚡ An interactive practice environment for 42 School exam (Ranks 03) ⚡
 
 ## 📋 Overview
 
